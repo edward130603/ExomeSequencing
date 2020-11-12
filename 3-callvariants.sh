@@ -1,0 +1,13 @@
+$JAVA \
+        -Djava.io.tmpdir=/mnt/lustre/users/zhaoe/ \
+        -Xmx84g -jar $GATK \
+        -nt 12 \
+        -R /mnt/isilon/devoto_lab/GrCh37/hs37d5.fa \
+        -T GenotypeGVCFs \
+        --dbsnp /mnt/isilon/cbmi/variome/reference/human/dbsnp137.vcf \
+        -L /mnt/isilon/devoto_lab/ItalianExomes/SureSelect_V5_50bp.interval_list \
+        -o NA04_GATK3_Calls.vcf \
+        -V /mnt/isilon/devoto_lab/ItalianExomes/Nov2016/NA04COAN.gVCF \
+        -V /mnt/isilon/devoto_lab/ItalianExomes/Nov2016/NA04COGI.gVCF \
+        -V /mnt/isilon/devoto_lab/ItalianExomes/Nov2016/NA04COVI.gVCF \
+        -V /mnt/isilon/devoto_lab/ItalianExomes/Nov2016/NA04GIFI.gVCF \

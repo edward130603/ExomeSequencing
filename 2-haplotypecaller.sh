@@ -1,0 +1,13 @@
+$JAVA \
+	-Djava.io.tmpdir=/mnt/lustre/users/zhaoe/ \
+	-Xmx60g -jar $GATK \
+	-nct 20 \
+	-R /mnt/isilon/devoto_lab/GrCh37/hs37d5.fa \
+	-T HaplotypeCaller \
+	--dbsnp /mnt/isilon/cbmi/variome/reference/human/dbsnp137.vcf \
+	-stand_call_conf 30.0 \
+	-stand_emit_conf 30.0 \
+	-L /mnt/isilon/devoto_lab/ItalianExomes/SureSelect_V5_50bp.interval_list \
+	-I /mnt/isilon/devoto_lab/ItalianExomes/Nov2016/NA04COAN.sorted.mdup.bam \
+	--emitRefConfidence GVCF --variant_index_type LINEAR --variant_index_parameter 128000 \
+	-o NA04COAN.gVCF
